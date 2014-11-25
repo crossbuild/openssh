@@ -57,10 +57,10 @@ ssh_compatible_openssl(long headerver, long libver)
 	}
 	
 	/*
-	 * For versions >= 1.0.0, major,minor,status must match and library
+	 * For versions >= 1.0.0, major,minor must match and library
 	 * fix version must be equal to or newer than the header.
 	 */
-	mask = 0xfff0000fL; /* major,minor,status */
+	mask = 0xfff00000L; /* major,minor */
 	hfix = (headerver & 0x000ff000) >> 12;
 	lfix = (libver & 0x000ff000) >> 12;
 	if ( (headerver & mask) == (libver & mask) && lfix >= hfix)
